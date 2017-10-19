@@ -47,7 +47,7 @@ public class UpLoadServlet3 extends HttpServlet {
             upload.setProgressListener(new ProgressListener() {
                 @Override
                 public void update(long pBytesRead, long pContentLength, int pItems) {
-                    System.out.println("当前已解析：" + pBytesRead);
+//                    System.out.println("当前已解析：" + pBytesRead);
                 }
             });
             //不能超过5M，超过5M，for循环解析时会抛出异常
@@ -76,12 +76,12 @@ public class UpLoadServlet3 extends HttpServlet {
                     if (fileName == null || fileName.trim().equals("")) {
                         continue;
                     }
-                    String extendName = fileName.substring(fileName.lastIndexOf(".") + 1);
+                    /*String extendName = fileName.substring(fileName.lastIndexOf(".") + 1);
                     if (!types.contains(extendName)) {
                         request.setAttribute("message", "本系统不支持" + extendName + "这种类型！");
                         request.getRequestDispatcher("/message.jsp").forward(request, response);
                         return;
-                    }
+                    }*/
                     InputStream in = item.getInputStream();//得到数据
                     int len = 0;
                     byte buffer[] = new byte[1024];
